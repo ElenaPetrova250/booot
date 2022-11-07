@@ -1,16 +1,66 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import telebot
+bot = telebot.TeleBot('5411075983:AAH-DLfMKP7473HjHsONWrbWj3WiPvusj9Q')
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    mess = f'Привет, {message.from_user.first_name}'
+    bot.send_message(message.chat.id, 'Привет! Поиграем в игру с конфетками?') 
+
+if __name__ == "__main__":
+
+#код с игры
+
+#from random import randint
+
+#def input_dat(name):
+#    x = int(input(f"{name}, введите количество конфет, которое возьмете от 1 до 28: "))
+#    while x < 1 or x > 28:
+#        x = int(input(f"{name}, введите корректное количество конфет: "))
+#    return x
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#def p_print(name, k, counter, value):
+#    print(f"Ходил {name}, он взял {k}, теперь у него {counter}. Осталось на столе {value} конфет.")
+
+
+#def bot_calc(value):
+#    k = randint(1,29)
+#    while value-k <= 28 and value > 29:
+#        k = randint(1,29)
+#    return k
+
+#player1 = input("Введите имя первого игрока: ")
+#player2 = "Bot"
+#value = int(input("Введите количество конфет на столе: "))
+#flag = randint(0,2) # флаг очередности
+#if flag:
+#    print(f"Первый ходит {player1}")
+#else:
+#    print(f"Первый ходит {player2}")
+
+#counter1 = 0 
+#counter2 = 0
+
+#while value > 28:
+#    if flag:
+#        k = input_dat(player1)
+#        counter1 += k
+#        value -= k
+#        flag = False
+#        p_print(player1, k, counter1, value)
+#    else:
+#        k = bot_calc(value)
+#        counter2 += k
+#        value -= k
+#        flag = True
+#        p_print(player2, k, counter2, value)
+
+#if flag:
+#    print(f"Выиграл {player1}")
+#else:
+#    print(f"Выиграл {player2}")
+
+#bot.polling(none_stop=True)
